@@ -1,19 +1,25 @@
-var _0x35d90b = _0x8704;
-function _0x396b() {
-  var _0x2c634e = [ ... ];
-  _0x396b = function() { return _0x2c634e; };
-  return _0x396b();
-}
-(function (_0x164611, _0x2c8b0b) {
-  ...
-}(_0x396b, 0xb4bf4));
-
 function calculateAverage() {
-  ...
-}
+      var price1 = parseFloat(document.getElementById("price1").value) || 0;
+      var qty1 = parseFloat(document.getElementById("qty1").value) || 0;
+      var price2 = parseFloat(document.getElementById("price2").value) || 0;
+      var qty2 = parseFloat(document.getElementById("qty2").value) || 0;
 
-function _0x8704(...) {
-  ...
-}
+      var totalCost = (price1 * qty1) + (price2 * qty2);
+      var totalQty = qty1 + qty2;
 
-document[...]; // event listener code
+      if (totalQty === 0) {
+        document.getElementById("result").innerText = "Please enter valid quantities.";
+        return;
+      }
+
+      var averagePrice = totalCost / totalQty;
+
+      document.getElementById("result").innerHTML = `
+        <strong>Average Price:</strong> ₹${averagePrice.toFixed(2)}<br>
+        <strong>Total Units:</strong> ${totalQty}<br>
+        <strong>Total Investment:</strong> ₹${totalCost.toFixed(2)}
+
+      `;
+    }document.getElementById("themeSwitcher").addEventListener("change", function () {
+            document.body.classList.toggle("dark-mode", this.checked);
+        });
