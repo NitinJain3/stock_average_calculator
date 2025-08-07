@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stock Average Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f2f2f2;
+    }
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stock Average Calculator</h1>
+
+  <label>First Share Price: <input type="number" id="price1" /></label>
+  <label>First Share Units: <input type="number" id="units1" /></label>
+
+  <label>Second Share Price: <input type="number" id="price2" /></label>
+  <label>Second Share Units: <input type="number" id="units2" /></label>
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function calculate() {
+      const price1 = parseFloat(document.getElementById('price1').value);
+      const units1 = parseFloat(document.getElementById('units1').value);
+      const price2 = parseFloat(document.getElementById('price2').value);
+      const units2 = parseFloat(document.getElementById('units2').value);
+
+      if (price1 <= 0 || units1 <= 0 || price2 <= 0 || units2 <= 0 || isNaN(price1) || isNaN(units1) || isNaN(price2) || isNaN(units2)) {
+        document.getElementById('result').innerHTML = "⚠️ Please enter valid values (greater than 0).";
+        return;
+      }
+
+      const totalAmount = (price1 * units1) + (price2 * units2);
+      const totalUnits = units1 + units2;
+      const avgPrice = totalAmount / totalUnits;
+
+      document.getElementById('result').innerHTML = `
+        <strong>Total Units:</strong> ${totalUnits}<br>
+        <strong>Total Investment:</strong> ₹${totalAmount.toFixed(2)}<br>
+        <strong>Average Price:</strong> ₹${avgPrice.toFixed(2)}
+      `;
+    }
+  </script>
+</body>
+</html>
