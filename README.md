@@ -1,7 +1,8 @@
 # 📊 Stock Average Calculator
 
 A simple, responsive web application to calculate the **average stock price** based on multiple purchase entries.  
-This tool helps investors quickly determine the average price per share after buying at different rates.
+This tool helps investors quickly determine the average price per share after buying at different rates.  
+Website Link : [Stock Average Calculator](https://nitinjain3.github.io/stock_average_calculator/)
 
 ## Light Mode
 
